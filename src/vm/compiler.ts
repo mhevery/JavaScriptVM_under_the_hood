@@ -115,9 +115,10 @@ export function subroutine(label: Label, instructions: any[]) {
   return [label, ...instructions, Instruction.RETURN];
 }
 
-export function compile(input: (number | string)[]): number[] {
+export function compile(
+  input: (number | string | Label | Array<any>)[]
+): number[] {
   input = input.flat(Infinity);
-  console.log(input);
   const out: (string | number)[] = [];
   const labels = new Map<string, number>();
   for (let i = 0; i < input.length; i++) {
@@ -134,7 +135,7 @@ export function compile(input: (number | string)[]): number[] {
         throw new Error("Invalid label: " + value);
       }
     } else {
-      out.push(value);
+      out.push(value as number);
     }
   }
   return out.map((v) => {

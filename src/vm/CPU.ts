@@ -1,5 +1,10 @@
 import { Flags, Instruction } from "./instructions";
-import { MEMORY } from "./fibonacci";
+import MEMORY from "./memory_add";
+// import MEMORY from "./memory_add_from_data";
+// import MEMORY from "./memory_sub_routine_no_stack";
+// import MEMORY from "./memory_sub_routine";
+// import MEMORY from "./memory_compiler";
+// import MEMORY from "./memory_fibonacci";
 
 // REGISTERS
 
@@ -18,6 +23,7 @@ let PC: number = 0;
 // Stack pointer
 let SP: number = MEMORY.length - 1;
 
+console.log(MEMORY);
 logHeader();
 let maxInstructionCount = 1000;
 while (true) {
@@ -25,10 +31,15 @@ while (true) {
     case Instruction.HALT:
       logState("HALT");
       logFooter();
+      console.log(MEMORY);
       process.exit(0);
     case Instruction.LOAD_CONST_R0:
       setFlags((R0 = MEMORY[PC++]));
       logState("Loaded " + R0 + " into R0");
+      break;
+    case Instruction.LOAD_CONST_R1:
+      R1 = MEMORY[PC++];
+      logState("Loaded " + R1 + " into R1");
       break;
     case Instruction.LOAD_CONST_A0:
       A0 = MEMORY[PC++];
@@ -41,6 +52,10 @@ while (true) {
     case Instruction.LOAD_VALUE_FROM_ADDR_A0_PLUS_AE0_TO_R0:
       setFlags((R0 = MEMORY[A0 + AE0]));
       logState("Loaded " + R0 + " into R0 from address [A0+AE0]=" + (A0 + AE0));
+      break;
+    case Instruction.LOAD_VALUE_FROM_ADDR_A0_PLUS_AE0_TO_R1:
+      R1 = MEMORY[A0 + AE0];
+      logState("Loaded " + R1 + " into R1 from address [A0+AE0]=" + (A0 + AE0));
       break;
     case Instruction.STORE_R0_TO_ADDR_A0_PLUS_AE0:
       MEMORY[A0 + AE0] = R0;
@@ -88,6 +103,10 @@ while (true) {
     case Instruction.POP_R1:
       R1 = MEMORY[++SP];
       logState(`Pop stack to restore R1(${R1})`);
+      break;
+    case Instruction.INCREMENT_R0:
+      setFlags(++R0);
+      logState(`Increment R0 to ${R0}`);
       break;
     case Instruction.DECREMENT_R0:
       setFlags(--R0);

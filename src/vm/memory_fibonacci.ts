@@ -19,7 +19,7 @@ import {
 } from "./compiler";
 import { Instruction } from "./instructions";
 
-export const MEMORY: number[] = compile([
+export default compile([
   // =================
   // INSTRUCTIONS
   // -----------------
