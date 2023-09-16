@@ -1,10 +1,10 @@
 import { Flags, Instruction } from "./instructions";
-import MEMORY from "./memory_add";
-// import MEMORY from "./memory_add_from_data";
-// import MEMORY from "./memory_sub_routine_no_stack";
-// import MEMORY from "./memory_sub_routine";
-// import MEMORY from "./memory_compiler";
-// import MEMORY from "./memory_fibonacci";
+import MEMORY from "./memory/01_add";
+// import MEMORY from "./memory/02_add_from_data";
+// import MEMORY from "./memory/03_sub_routine_no_stack";
+// import MEMORY from "./memory/04_sub_routine";
+// import MEMORY from "./memory/05_compiler";
+// import MEMORY from "./memory/06_fibonacci";
 
 // REGISTERS
 
@@ -24,8 +24,9 @@ let PC: number = 0;
 let SP: number = MEMORY.length - 1;
 
 console.log(MEMORY);
+let maxInstructionCount = 10000;
 logHeader();
-let maxInstructionCount = 1000;
+logState("-- init --");
 while (true) {
   switch (MEMORY[PC++]) {
     case Instruction.HALT:
@@ -112,10 +113,10 @@ while (true) {
       setFlags(--R0);
       logState(`Decrement R0 to ${R0}`);
       break;
-    case Instruction.ADD_R0_TO_R1:
+    case Instruction.ADD_R1_TO_R0:
       const oldR0 = R0;
       setFlags((R0 = R0 + R1));
-      logState(`Add R0(${oldR0}) + R1(${R1}) => R0(${R0})`);
+      logState(`Add R1(${R1}) + R1(${oldR0}) => R0(${R0})`);
       break;
     case Instruction.MOVE_R0_TO_R1:
       R1 = R0;

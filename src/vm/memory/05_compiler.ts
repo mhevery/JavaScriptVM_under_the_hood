@@ -7,8 +7,8 @@ import {
   load_A0,
   load_AE0,
   subroutine,
-} from "./compiler";
-import { Instruction } from "./instructions";
+} from "../compiler";
+import { Instruction } from "../instructions";
 
 export default compile([
   load_A0(addrOf("DATA")),

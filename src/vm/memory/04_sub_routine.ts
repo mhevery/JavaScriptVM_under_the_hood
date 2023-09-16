@@ -1,4 +1,4 @@
-import { Instruction } from "./instructions";
+import { Instruction } from "../instructions";
 
 //
 //
@@ -34,4 +34,8 @@ export default [
   20,
   30,
   40,
+  0, // STACK space
+  0,
+  0,
+  0,
 ];

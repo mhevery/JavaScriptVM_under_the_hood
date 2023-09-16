@@ -1,6 +1,6 @@
-import { Instruction } from "./instructions";
+import { Instruction } from "../instructions";
 
-//
+// THIS IS SUPPOSED TO CRASH
 //
 //
 //
@@ -8,7 +8,7 @@ import { Instruction } from "./instructions";
 //
 export default [
   Instruction.LOAD_CONST_A0,
-  23, // 13 is the address of the first element of the DATA section
+  23, // 23 is the address of the first element of the DATA section
   Instruction.LOAD_CONST_AE0,
   0,
   Instruction.GO_SUB,
@@ -34,8 +34,4 @@ export default [
   20,
   30,
   40,
-  0, // STACK space
-  0,
-  0,
-  0,
 ];

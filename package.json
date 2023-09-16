@@ -5,11 +5,12 @@
   "scripts": {
     "start": "tsc --watch",
     "build": "tsc",
+    "inline-cache": "pnpm build && pnpm dexnode --out ./profile/inline-cache.log --redirect-code-traces-to=./profile/inline-cache.ignore ./dist/inline-cache.js",
     "deopt": "pnpm build && pnpm dexnode --out ./profile/deopt.log --redirect-code-traces-to=./profile/deopt.ignore ./dist/deopt.js",
     "deopt-fix": "pnpm build && pnpm dexnode --out ./profile/deopt-fix.log --redirect-code-traces-to=./profile/deopt-fix.ignore ./dist/deopt-fix.js",
-    "inline-cache": "pnpm build && pnpm dexnode --out ./profile/inline-cache.log --redirect-code-traces-to=./profile/inline-cache.ignore ./dist/inline-cache.js",
     "holey-arrays": "pnpm build && pnpm dexnode --out ./profile/holey-arrays.log --redirect-code-traces-to=./profile/holey-arrays.ignore ./dist/holey-arrays.js",
     "equality": "pnpm build && pnpm dexnode --out ./profile/equality.log --redirect-code-traces-to=./profile/equality.ignore ./dist/equality.js",
+    "keys": "pnpm build && pnpm dexnode --out ./profile/keys.log --redirect-code-traces-to=./profile/keys.ignore ./dist/keys.js",
     "vm": "pnpm build && node ./dist/vm/CPU.js"
   },
   "author": "",

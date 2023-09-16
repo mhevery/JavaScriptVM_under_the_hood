@@ -16,8 +16,8 @@ import {
   save_R1,
   store_R0_to_addr_offset,
   subroutine,
-} from "./compiler";
-import { Instruction } from "./instructions";
+} from "../compiler";
+import { Instruction } from "../instructions";
 
 export default compile([
   // =================
@@ -57,11 +57,11 @@ export default compile([
   // DATA
   // -----------------
   label("DATA"),
-  5, // Fibonacci sequence input
+  4, // Fibonacci sequence input
   0, // Fibonacci sequence result (output)
-  ...new Array(10).fill(0),
+  ...new Array(20).fill(0),
   // =================
   // STACK
   // -----------------
-  ...new Array(100).fill(0),
+  ...new Array(20).fill(0),
 ]);

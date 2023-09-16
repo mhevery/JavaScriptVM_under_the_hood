@@ -75,7 +75,7 @@ export function move_R1_to_R0() {
 }
 
 export function add_R0_to_R1() {
-  return [Instruction.ADD_R0_TO_R1];
+  return [Instruction.ADD_R1_TO_R0];
 }
 
 export function decrement_R0() {

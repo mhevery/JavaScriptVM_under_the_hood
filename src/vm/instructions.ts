@@ -12,7 +12,7 @@ export enum Instruction {
   LOAD_VALUE_FROM_ADDR_A0_PLUS_AE0_TO_R1 = 301, // Load data from address A0 + AE0 into R1
   STORE_R0_TO_ADDR_A0_PLUS_AE0 = 350, // Store data from R0 into address A0 + AE0
   COMPARE_R0_TO_CONST = 400, // Compare R0 to constant
-  ADD_R0_TO_R1 = 401, // Add R0 to R1 store in R0
+  ADD_R1_TO_R0 = 401, // Add R0 to R1 store in R0
   PUSH_R0 = 500, // Push R0 onto stack
   PUSH_R1 = 501, // Pop R0 from stack
   POP_R0 = 502, // Push R0 onto stack
