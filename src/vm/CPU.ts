@@ -116,7 +116,7 @@ while (true) {
     case Instruction.ADD_R1_TO_R0:
       const oldR0 = R0;
       setFlags((R0 = R0 + R1));
-      logState(`Add R1(${R1}) + R1(${oldR0}) => R0(${R0})`);
+      logState(`Add R1(${R1}) + R0(${oldR0}) => R0(${R0})`);
       break;
     case Instruction.MOVE_R0_TO_R1:
       R1 = R0;
